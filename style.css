@@ -9,6 +9,31 @@ body {
   font-family: "Work Sans" . sans-serif;
 }
 
+.mynavbar {
+  background-color: rgba(255, 255, 255, 0.3) !important;
+  backdrop-filter: blur(4px);
+}
+
+.mynavbar .offcanvas {
+  height: 100hv;
+}
+
+.mynavbar .navbar-brand,
+.mynavbar .offcanvas-tittle {
+  font-family: "Sacramento", cursive;
+  font-size: 3.2rem;
+  font-weight: bold;
+}
+
+.mynavbar .nav-link {
+  text-transform: uppercase;
+}
+
+.offcanvas-header .offcanvas-title {
+  font-family: "Sacramento", cursive;
+  font-size: 2.8rem;
+}
+
 .hero {
   min-height: 100vh;
   position: relative;
@@ -30,6 +55,7 @@ body {
   background-image: url(img/bg/img.jpg);
   z-index: -1;
   filter: grayscale();
+  background-position: center;
 }
 
 .hero h1 {
@@ -45,7 +71,7 @@ body {
   left: 50%;
   transform: translateX(-50%);
   margin-top: 60px;
-  font-family: "Raleway", incursive;
+  font-family: "Raleway", sans;
 }
 
 .hero p {
@@ -67,24 +93,88 @@ body {
   background-color: var(--pink);
 }
 
+/* Home */
+.home {
+  background-image: url(img/bg/bgfloral.png);
+  min-height: 100hv;
+  margin-top: -6rem;
+  padding-top: 15rem;
+  padding-bottom: 5rem;
+}
+
+.home h2 {
+  color: var(--pink);
+  font-family: "Sacramento";
+  font-size: 5rem;
+  font-weight: 3rem;
+}
+.home h3 {
+  color: #444;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.home p {
+  font-size: 1.1rem;
+  color: #666;
+}
+.home .couple {
+  margin-top: 100px;
+}
+.home .couple h3 {
+  font-family: "Sacramento", cursive;
+  font-size: 2.5rem;
+  color: var(--pink);
+}
+
+.home .couple img {
+  width: 100%;
+}
+.home .heart {
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  display: flex;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateY(65px);
+}
+.home .heart i {
+  margin: auto;
+  color: var(--pink);
+}
 /* Media Query */
+/* Extra Large */
+@media (max-width: 1200px) {
+  .home .heart {
+    transform: translateX(-50%) translateY(45px);
+  }
+}
 /* laptop */
-@media @media (max-width: 992px) {
+@media (max-width: 992px) {
   html {
     font-size: ;
   }
   .simply-countdown > .simply-section {
     padding: 70px;
   }
+  .home .heart {
+    display: none;
+  }
 }
 /* tablet */
-@media @media (max-width: 768px) {
+@media (max-width: 768px) {
   html {
     font-size: 65%;
   }
   .simply-countdown > .simply-section {
     padding: 60px;
     margin: 5px;
+  }
+  .mynavbar .nav-link {
+    font-size: 2rem;
+    text-align: center;
   }
 }
 /* handphone */
@@ -95,5 +185,9 @@ body {
   .simply-countdown > .simply-section {
     padding: 45px;
     margin: 3px;
+  }
+  .mynavbar .nav-link {
+    font-size: 2rem;
+    text-align: center;
   }
 }
