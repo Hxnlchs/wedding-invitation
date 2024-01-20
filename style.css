@@ -15,7 +15,7 @@ body {
 }
 
 .mynavbar .offcanvas {
-  height: 100hv;
+  height: 100vh;
 }
 
 .mynavbar .navbar-brand,
@@ -98,7 +98,7 @@ body {
   background-image: url(img/bg/bgfloral.png);
   min-height: 100hv;
   margin-top: -6rem;
-  padding-top: 15rem;
+  padding-top: 12rem;
   padding-bottom: 5rem;
 }
 
@@ -143,6 +143,50 @@ body {
 .home .heart i {
   margin: auto;
   color: var(--pink);
+}
+
+/* Info */
+.info {
+  background-color: var(--bg);
+  color: white;
+  padding-top: 10rem;
+  padding-bottom: 8rem;
+}
+
+.info h2 {
+  color: var(--pink);
+  font-family: "Sacramento", cursive;
+  font-size: 5rem;
+  font-weight: bold;
+}
+
+.info .alamat {
+  font-size: 1.1rem;
+}
+.info .description {
+  font-size: 1rem;
+  font-weight: 100;
+  /* color: gray; */
+}
+.info .card {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  color: white !important;
+  border: 1px solid #999;
+}
+.info .card-header {
+  border-bottom: 1px solid #999;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+.info .card-body {
+  font-size: 1rem;
+}
+.info .card-footer {
+  border-top: 1px solid #999;
+  font-size: 0.9rem;
+  color: white !important;
+}
+.info .card-footer {
 }
 /* Media Query */
 /* Extra Large */
