@@ -23,7 +23,7 @@
         <h1>Dean & Keyla</h1>
         <!-- <p>Akan melangsungkan resepsi pernikahan dalam</p> -->
         <div class="simply-countdown"></div>
-        <a href="#home" class="btn btn-lg">Open Invitation</a>
+        <a href="#home" class="btn btn-lg" onclick="enableScroll()">Open Invitation</a>
       </main>
     </section>
     <!-- Navbar Start -->
@@ -257,7 +257,92 @@
       </div>
     </section>
     <!-- Gallery End -->
+    <!-- RSVP Start -->
+    <section id="rsvp" class="rsvp">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-8 col-10 text-center">
+            <h2>Konfirmasi Kehadiran</h2>
+            <p>Isi form kehadiran acara.</p>
+          </div>
+        </div>
+        <form class="row row-cols-lg-auto g-3 align-items-center justify-content-center" method="POST" 
+        action="https://script.google.com/macros/s/AKfycbz11Mrc0zByGtZWYdoc2LljhtktdvrP4Y6XOeLoNZRq8NX9MEOIumIVMDEcRxJqaVMEkQ/exec" id="my-form">
+          <div class="col-12">
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" class="form-control" id="name" name="name" />
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="mb-3">
+              <label for="jumlah" class="form-label">Jumlah</label>
+              <input type="number" class="form-control" id="jumlah" name="jumlah" min="1" max="3" />
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="mb-3">
+              <label for="status" class="form-label">status</label>
+              <select name="status" id="status" class="form-select">
+                <option selected>--Status Kehadiran--</option>
+                <option value="Hadir">Hadir</option>
+                <option value="Tidak Hadir">Tidak Hadir</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-12" style="margin-top: 35px;">
+            <button class="btn btn-primary">Confirm</button>
+        </form>
+      </div>
+    </section>
+    <!-- RSVP End -->
+    <!-- Gifts Start -->
+    <section id="gifts" class="gifts">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-8 col-10 text-center">
+            <span>Ungkapan tanda kasih</span>
+            <h2>Send Gifts</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, minus!</p>
+          </div>
+          <div class="row justify-content-center text-center">
+            <div class="col-md-6">
+              <ul class="list-group">
+                <li class="list-group-item">
+                  <span class="d-block fw-bold">Bank Central Asia (BCA)</span>
+                  123456689 - FERDINANT PANGESTU
+                </li>
+                <li class="list-group-item">
+                  <img src="img/gallery/BCAQRIS-MBCA-20240122-161804.jpg" alt="QRIS BCA" class="img-thumbnail" width="250">
+                </li>
+               
+                <li class="list-group-item">
+                  <span class="d-block fw-bold">Bank Mandiri</span>
+                  987654656 - FERDINANT PANGESTU
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    </section>
+    <!-- Gifts End -->
+    <!-- Footer Start -->
+    <footer>
+      <div class="container">
+        <div class="col text-center">
+          <small class="block">&copy; 2024 Dean Keyla Wedding. All Right Reserved.</small>
+          <small class="block">Design by <a href="https://instagram.com/ferdinantp_">@ferdinantp_</a></small>
+          <ul class="mt-3">
+            <li><a href="https://instagram.com/ferdinantp_" target="_blank"><i class="bi bi-instagram"></i></a></li>
+            <li><a href="https://linkedin.com/in/ferdinant-pangestu" target="_blank"><i class="bi bi-linkedin"></i></a></li>
+            <li><a href="https://github.com/Hxnlchs" target="_blank"><i class="bi bi-github"></i></a></li>
+            <li><a href="https://hxnlchs.github.io/portfolio-tailwindcss" target="_blank"><i class="bi bi-globe"></i></i></a></li>
+          </ul>
+        </div>
+      </div>
 
+    </footer>
+    <!-- Footer End -->
     <script>
       simplyCountdown(".simply-countdown", {
         year: 2024, // required
@@ -284,6 +369,47 @@
       offcanvas.addEventListener("hidden.bs.offcanvas", function () {
         stickyTop.style.overflow = "hidden";
       });
+    </script>
+    <!-- Disable Scroll -->
+    <script>
+      const rootElement = document.querySelector(":root");
+      function disableScroll() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollLeft = window.pageYOffset || document.documentElement.scrollLeft;
+
+        window.onscroll = function () {
+          window.scrollTo(scrollTop, scrollLeft);
+        };
+
+        rootElement.style.scrollBehavior = "auto";
+      }
+      function enableScroll() {
+        window.onscroll = function () {};
+        rootElement.style.scrollBehavior = "smooth";
+        // localStorage.setItem("opened", "true");
+      }
+      // if (!localStorage.getItem("opened")) {
+      //   disableScroll();
+      // }
+      disableScroll();
+    </script>
+    <script>
+      window.addEventListener("load", function() {
+      const form = document.getElementById('my-form');
+      form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const data = new FormData(form);
+      const action = e.target.action;
+      fetch(action, {
+      method: 'POST',
+      body: data,
+    })
+    .then(() => {
+      alert("Data Kehadiran Berhasil Dikonfirmasi!");
+    })
+  });
+});
+
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bs5-lightbox@1.8.3/dist/index.bundle.min.js"></script>
