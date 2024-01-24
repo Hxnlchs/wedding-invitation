@@ -346,6 +346,73 @@ footer li{
   display: inline;
   margin: 0.5rem;
 }
+/* Music */
+.audio-icon-wrapper{
+  width: 4rem;
+  height: 4rem;
+  font-size: 4rem;
+  position:fixed;
+  bottom: 2.5rem;
+  right:2rem;
+  cursor: pointer;
+  color: white;
+  opacity: 0.5;
+  mix-blend-mode: difference;
+  animation: rotating 4s linear infinite;
+  transform-origin: center;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 0;
+}
+@keyframes rotating{
+  from{
+    transform: rotate(0);
+  }
+  to{
+    transform: rotate(360deg);
+  }
+}
+/* Animation */
+.animate-from-top {
+  opacity: 0;
+  transform: translateY(-50px);
+  transition: opacity 1s ease, transform 1s ease-in-out;
+}
+
+.animate-from-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 1s ease, transform 1s ease-in-out;
+}
+.animate-from-right{
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 1s ease, transform 1s ease-in-out;
+}
+.animate-from-top.visible,
+.animate-from-left.visible, .animate-from-right.visible {
+  opacity: 1;
+  transform: translateY(0) translateX(0);
+}
+.animate-scale {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.8s ease, transform 1s ease-in-out;
+}
+
+.animate-scale.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+.fade-in {
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+}
 /* Media Query */
 /* Extra Large */
 @media (max-width: 1200px) {
