@@ -73,6 +73,18 @@ body {
   margin-top: 60px;
   font-family: "Raleway", sans;
 }
+.hero h3 {
+  font-size: 1.5rem;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 110px;
+  font-family: "Raleway", sans;
+}
+.hero h3 span{
+  display: block;
+}
 
 .hero p {
   font-size: 1.4rem;
@@ -194,12 +206,12 @@ body {
 /* Story */
 .story,
 .gallery,
-.rsvp, .gifts {
+.rsvp, .gifts, .ucapan {
   padding-top: 6rem;
   padding-bottom: 8rem;
 }
 .story span,
-.gallery span, .gifts span {
+.gallery span, .gifts span, .ucapan span {
   text-transform: uppercase;
   color: #666;
   font-size: 0.9rem;
@@ -209,7 +221,7 @@ body {
 }
 .story p,
 .gallery p,
-.rsvp p, .gifts p {
+.rsvp p, .gifts p, .ucapan p {
   font-size: 1rem;
   font-weight: 300;
 }
@@ -317,15 +329,66 @@ body {
 .rsvp form label {
   color: white;
 }
-.rsvp button{
+.rsvp button, .ucapan button{
   background-color: var(--pink);
   color: white;
   border: 1px solid var(--pink);
 }
-.rsvp button:hover{
+.rsvp button:hover, .ucapan button:hover{
   background-color: white;
   color: var(--pink)
   border: 1px solid white;
+}
+// Gifts
+.gifts{
+  background-color:var(--pink);
+}
+// Ucapan
+.ucapan {
+  background-color: var(--pink);
+}
+.ucapan h2{
+  color: var(--bg);
+  font-family: "Sacramento";
+  font-size: 5rem;
+  font-weight: 3rem;
+}
+.ucapan button{
+  background-color: var(--bg);
+  color: white;
+  border: 1px solid var(--bg);
+}
+.ucapan button:hover{
+  background-color: white;
+  color: var(--pink)
+  border: 1px solid white;
+}
+#guestForm{
+  max-width: 700px; /* Sesuaikan lebar formulir sesuai kebutuhan */
+  margin: auto; /* Menengahkan formulir */
+}
+.guestBook .wishList{
+  margin: auto; /* Menengahkan formulir */
+}
+#guestList{
+  list-style: none;
+}
+#guestList li{
+  list-style: none;
+  display:block;
+}
+.wishList {
+  margin-top: 10px;
+  border: 1px solid var(--pink);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.wishList ul {
+  list-style-type: none;
+  padding: 0;
+  max-height: 200px; /* Atur tinggi maksimum yang diinginkan */
+  overflow-y: auto; /* Aktifkan scroll vertikal jika melebihi tinggi maksimum */
 }
 /* Footer */
 footer{

@@ -20,6 +20,9 @@
     <section id="hero" class="hero w-100 h-100 p-3 mx-auto text-center d-flex justify-content-center align-items-center text-white">
       <main>
         <h4>WEDDING INVITATION</h4>
+        <h3 >Dear, 
+        <span></span>
+        </h3>
         <h1>Dean & Keyla</h1>
         <div class="simply-countdown"></div>
         <a href="#home" class="btn btn-lg" onclick="enableScroll()">Open Invitation</a>
@@ -156,10 +159,10 @@
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis minus distinctio esse, numquam quia nesciunt.</p>
           </div>
         </div>
-        <div class="row animate-from-left">
+        <div class="row">
           <div class="col">
             <ul class="timeline">
-              <li>
+              <li class="animate-from-left">
                 <div class="timeline-image" style="background-image: url(img/story/wd.jpg)"></div>
                 <div class="timeline-panel">
                   <div class="heading">
@@ -171,7 +174,7 @@
                   </div>
                 </div>
               </li>
-              <li class="timeline-inverted">
+              <li class="timeline-inverted animate-from-left">
                 <div class="timeline-image" style="background-image: url(img/story/Want\ to\ Work\ Remotely\ Abroad_\ Try\ These\ 15\ Cities\ for\ Digital\ Nomads.jpeg)"></div>
                 <div class="timeline-panel">
                   <div class="heading">
@@ -183,7 +186,7 @@
                   </div>
                 </div>
               </li>
-              <li>
+              <li class="animate-from-left">
                 <div class="timeline-image" style="background-image: url(img/story/Why\ Engagement\ Rings\ Are\ More\ Expensive\ Than\ Wedding\ Rings.jpeg)"></div>
                 <div class="timeline-panel">
                   <div class="heading">
@@ -270,7 +273,7 @@
         action="https://script.google.com/macros/s/AKfycbz11Mrc0zByGtZWYdoc2LljhtktdvrP4Y6XOeLoNZRq8NX9MEOIumIVMDEcRxJqaVMEkQ/exec" id="my-form">
           <div class="col-12">
             <div class="mb-3">
-              <label for="name" class="form-label">Name</label>
+              <label for="name" class="form-label">Nama</label>
               <input type="text" class="form-control" id="name" name="name" />
             </div>
           </div>
@@ -282,7 +285,7 @@
           </div>
           <div class="col-12">
             <div class="mb-3">
-              <label for="status" class="form-label">status</label>
+              <label for="status" class="form-label">Status</label>
               <select name="status" id="status" class="form-select">
                 <option selected>--Status Kehadiran--</option>
                 <option value="Hadir">Hadir</option>
@@ -296,6 +299,37 @@
       </div>
     </section>
     <!-- RSVP End -->
+    <!-- Ucapan Start -->
+    <section id="ucapan" class="ucapan" style="background-color: #f14e95;">
+      <div class="container">
+          <div class="row justify-content-center animate-from-top">
+              <div class="col-md-8 col-10 text-center animate-scale">
+                  <h2>Share the Happiness</h2>
+                  <p>Berikan ucapan selamat kepada mempelai yang berbahagia.</p>
+              </div>
+          </div>
+          <div class="guestBook">
+            <form class="row align-items-center justify-content-center animate-scale" id="guestForm">
+              <div class="mb-3">
+                  <label for="guestName" class="form-label">Nama</label>
+                  <input type="text" name="guestName" class="form-control" id="guestName" required>
+              </div>
+              <div class="mb-3">
+                  <label for="guestWish" class="form-label">Ucapan</label>
+                  <textarea name="guestWish" class="form-control" id="guestWish" required></textarea>
+              </div>
+              <div class="mb-3">
+                  <button type="button" class="btn btn-primary" onclick="addGuest()">Send Wishes</button>
+              </div>
+            </form>
+            <!-- Guest Wishes -->
+              <!-- <div class="row align-items-center justify-content-center wishList ">
+                <ul id="guestList"></ul>
+              </div>
+          </div> -->
+      </div>
+    </section>
+    <!-- Ucapan End -->
     <!-- Gifts Start -->
     <section id="gifts" class="gifts">
       <div class="container">

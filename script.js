@@ -126,3 +126,132 @@ function handleScroll() {
 
 // Panggil fungsi handleScroll untuk memulai mendeteksi scroll dan animasi
 handleScroll();
+
+// Nama Undangan
+const urlParams = new URLSearchParams(window.location.search);
+const nama = urlParams.get("n") || "";
+const pronoun = urlParams.get("p") || "All";
+const namaContainer = document.querySelector(".hero h3 span");
+namaContainer.innerText = `${pronoun} ${nama}`;
+
+document.querySelector("#name").value = nama;
+
+// Daftar Ucapan
+// Fungsi untuk mendapatkan daftar ucapan dari penyimpanan lokal
+function getGuestListFromStorage() {
+  const storedGuestList = localStorage.getItem("guestList");
+  return storedGuestList ? JSON.parse(storedGuestList) : [];
+}
+
+// Fungsi untuk menambahkan ucapan ke daftar dan menyimpannya di penyimpanan lokal
+function addGuest() {
+  const name = document.getElementById("guestName").value;
+  const ucapan = document.getElementById("guestWish").value;
+
+  if (name.trim() === "" || ucapan.trim() === "") {
+    alert("Silakan isi nama dan ucapan.");
+    return;
+  }
+
+  // Membuat elemen <li> baru untuk nama
+  const nameItem = document.createElement("li");
+  nameItem.innerHTML = "<strong>" + name + "</strong>";
+
+  // Membuat elemen <li> baru untuk ucapan
+  const ucapanItem = document.createElement("li");
+  ucapanItem.innerHTML = ucapan;
+
+  // Menambahkan elemen <li> nama dan ucapan sebagai anak-anak dari <ul>
+  const guestListElement = document.getElementById("guestList");
+  guestListElement.appendChild(nameItem);
+  guestListElement.appendChild(ucapanItem);
+
+  // Mendapatkan daftar ucapan dari penyimpanan lokal
+  const guestList = getGuestListFromStorage();
+
+  // Menambahkan ucapan baru ke daftar
+  guestList.push({ name: name, ucapan: ucapan });
+
+  // Menyimpan daftar ucapan kembali ke penyimpanan lokal
+  localStorage.setItem("guestList", JSON.stringify(guestList));
+
+  document.getElementById("guestName").value = "";
+  document.getElementById("guestWish").value = "";
+}
+
+// Fungsi untuk menampilkan daftar ucapan dari penyimpanan lokal saat halaman dimuat
+function displayGuestList() {
+  const guestList = getGuestListFromStorage();
+  const guestListElement = document.getElementById("guestList");
+
+  guestList.forEach((guest) => {
+    const listItem = document.createElement("li");
+    listItem.innerHTML = "<strong>" + guest.name + "</strong> " + guest.ucapan;
+    guestListElement.appendChild(listItem);
+  });
+}
+
+// Memanggil fungsi untuk menampilkan daftar ucapan saat halaman dimuat
+window.onload = displayGuestList;
+
+// Fungsi untuk menghitung selisih waktu dan mengembalikan teks "time ago"
+function timeAgo(timestamp) {
+  const currentTime = new Date();
+  const messageTime = new Date(timestamp);
+  const timeDifference = currentTime - messageTime;
+
+  // Konversi waktu dalam milidetik ke detik
+  const seconds = Math.floor(timeDifference / 1000);
+
+  if (seconds < 60) {
+    return seconds + " seconds ago";
+  } else if (seconds < 3600) {
+    const minutes = Math.floor(seconds / 60);
+    return minutes + (minutes > 1 ? " minutes ago" : " minute ago");
+  } else if (seconds < 86400) {
+    const hours = Math.floor(seconds / 3600);
+    return hours + (hours > 1 ? " hours ago" : " hour ago");
+  } else {
+    const days = Math.floor(seconds / 86400);
+    return days + (days > 1 ? " days ago" : " day ago");
+  }
+}
+
+// Untuk Menhapus Ucapan
+// Fungsi untuk menampilkan daftar ucapan dari penyimpanan lokal saat halaman dimuat
+// function displayGuestList() {
+//   const guestList = getGuestListFromStorage();
+//   const guestListElement = document.getElementById("guestList");
+
+//   guestList.forEach((guest, index) => {
+//     const listItem = document.createElement("li");
+//     listItem.innerHTML = "<strong>" + guest.name + ":</strong> " + guest.ucapan;
+
+//     // Membuat tombol penghapusan
+//     const deleteButton = document.createElement("button");
+//     deleteButton.innerHTML = "Hapus";
+//     deleteButton.onclick = function() {
+//       deleteGuest(index);
+//     };
+
+//     // Menambahkan tombol penghapusan ke dalam elemen <li>
+//     listItem.appendChild(deleteButton);
+
+//     // Menambahkan elemen <li> ke dalam daftar
+//     guestListElement.appendChild(listItem);
+//   });
+// }
+
+// // Fungsi untuk menghapus ucapan dari daftar dan penyimpanan lokal
+// function deleteGuest(index) {
+//   const guestList = getGuestListFromStorage();
+
+//   // Hapus ucapan dari daftar berdasarkan index
+//   const deletedGuest = guestList.splice(index, 1);
+
+//   // Simpan daftar ucapan yang telah diubah kembali ke penyimpanan lokal
+//   localStorage.setItem("guestList", JSON.stringify(guestList));
+
+//   // Perbarui tampilan daftar ucapan
+//   displayGuestList();
+// }
